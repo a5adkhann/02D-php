@@ -1,3 +1,24 @@
+<?php
+include("./config/db_connection.php");
+
+if(isset($_POST['POSTbtn'])){
+    $name = $_POST['name'];
+    $message = $_POST['message'];
+
+    // echo "Name is ". $name . "and message is " . $message;
+    $insert_query = "INSERT INTO users(name, message) VALUES('$name', '$message')";
+    $execute = mysqli_query($connection, $insert_query);
+
+    if($execute){
+        echo "Data inserted successfully";
+        header("location: POSTForm.php");
+    }
+    else {
+        echo "Error inserting";
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +28,7 @@
 </head>
 <body>
 
-    <form action="post_example.php" method="POST">
+    <form method="POST">
         <input type="text" name="name" placeholder="Name here...">
         <input type="text" name="message" placeholder="Message here...">
 
