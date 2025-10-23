@@ -19,6 +19,7 @@
         
         <?php
         echo "<br>";
+        $sno = 1;
         $select_query = "SELECT * FROM users";
         $execute = mysqli_query($connection, $select_query);
         // $fetch = mysqli_fetch_array($execute);
@@ -26,12 +27,12 @@
         while($fetch = mysqli_fetch_array($execute)){
         ?>
         <tr>
-            <td><?php echo $fetch['id']?></td>
+            <td><?php echo $sno++?></td>
             <td><?php echo $fetch['name']?></td>
             <td><?php echo $fetch['message']?></td>
             <td>
                 <a href="update.php?id=<?php echo $fetch['id']?>">Edit</a>
-                <a href="">Delete</a>
+                <a href="delete.php?id=<?php echo $fetch['id']?>">Delete</a>
             </td>
         </tr>
         <?php
