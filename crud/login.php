@@ -1,11 +1,10 @@
 <?php
-session_start();
 include("../config/db_connection.php");
 if(isset($_POST['login'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $select_query = "SELECT * FROM registerations WHERE email = '$email' AND password = '$password'";
+    $select_query = "SELECT * FROM registrations WHERE email = '$email' AND password = '$password'";
     $execute = mysqli_query($connection, $select_query);
     $count = mysqli_num_rows($execute);
     $fetch = mysqli_fetch_array($execute);
@@ -19,7 +18,11 @@ if(isset($_POST['login'])){
         header("location: read.php");
     }
     else {
-        header("location: login.php");
+        // header("location: login.php");
+        echo "<script>
+        alert('Wrong Credentials');
+        location.assign('login.php');
+        </script>";
     }
 
 }

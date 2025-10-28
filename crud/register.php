@@ -5,7 +5,7 @@ if(isset($_POST['register'])){
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $insert_query = "INSERT INTO registerations(name, email, password) VALUES('$name', '$email', '$password')";
+    $insert_query = "INSERT INTO registrations(name, email, password) VALUES('$name', '$email', '$password')";
     $execute = mysqli_query($connection, $insert_query);
 
     if($execute){

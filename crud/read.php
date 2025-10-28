@@ -1,5 +1,9 @@
 <?php
     include("../config/db_connection.php");
+
+    if(!isset($_SESSION['email'])){
+        header("location: login.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +13,10 @@
     <title>Read Operation</title>
 </head>
 <body>
+
+    <a href="logout.php">Logout</a>
+
+
     <table border="1" cellspacing = "0" cellpadding="50">
         <tr>
             <th>Index</th>

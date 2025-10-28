@@ -1,6 +1,10 @@
 <?php
 include("../config/db_connection.php");
 
+if(!isset($_SESSION['email'])){
+        header("location: login.php");
+    }
+
 if(isset($_POST['POSTbtn'])){
     $name = $_POST['name'];
     $message = $_POST['message'];
