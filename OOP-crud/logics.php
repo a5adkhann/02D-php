@@ -16,5 +16,20 @@ class Logics {
 
         header("location: create.php");
     }
+
+    public function read(){
+        $select_query = "SELECT * FROM users";
+        $result = $this->con->prepare($select_query);
+        $execute = $result->execute();
+
+        $data = $result->get_result();
+        // $data1 = $data->fetch_all(MYSQLI_ASSOC);
+        return $data->fetch_all(MYSQLI_ASSOC);
+    }
+
+
+
+
+
 }
 ?>
