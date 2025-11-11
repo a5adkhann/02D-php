@@ -27,9 +27,20 @@ class Logics {
         return $data->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function edit($name, $message, $id){
+        $update_query = "UPDATE users SET name = '$name', message = '$message' WHERE id = $id";
+        $result = $this->con->prepare($update_query);
+        $execute = $result->execute();
 
+        header("location: read.php");
+    }
 
+    public function delete($id){
+        $delete_query = "DELETE FROM users WHERE id = $id";
+        $result = $this->con->prepare($delete_query);
+        $execute = $result->execute();
 
-
+        header("location: read.php");
+    }
 }
 ?>
